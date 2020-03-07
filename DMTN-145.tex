@@ -1,4 +1,4 @@
-\documentclass[modern]{aastex62}
+\documentclass[modern]{spie}
 
 % lsstdoc documentation: https://lsst-texmf.lsst.io/lsstdoc.html
 \input{meta}
@@ -6,8 +6,9 @@
 % Package imports go here.
 
 % Local commands go here.
-
-
+%Need for SPIE
+\usepackage[breaklinks,colorlinks,urlcolor=blue,citecolor=blue,linkcolor=blue]{hyperref}
+\usepackage{longtable}
 
 \newcommand{\docRef}{DMTN-145}
 \newcommand{\docUpstreamLocation}{\url{https://github.com/lsst-dm/dmtn-145}}
@@ -16,10 +17,10 @@
 \begin{document}
 \input{authors}
 \date{\today}
+\input{abstract}
 \title{Bringing Rubin Observatory software together }
 \hypersetup{pdftitle={\@title}, pdfauthor={\@author}, pdfkeywords={\@keywords}}
 
-\input{abstract}
 
 \input{body}
 
@@ -29,7 +30,7 @@
 % Include all the relevant bib files.
 % https://lsst-texmf.lsst.io/lsstdoc.html#bibliographies
 \section{References} \label{sec:bib}
-\bibliographystyle{yahapj}
+\bibliographystyle{spiebib}
 \bibliography{local,lsst,lsst-dm,refs_ads,refs,books}
 
 % Make sure lsst-texmf/bin/generateAcronyms.py is in your path
