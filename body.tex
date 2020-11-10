@@ -18,5 +18,36 @@ The Rubin Observatory LSST camera \citep{2010SPIE.7735E..0JK} also has a softwar
 
 In 2014 when the project officially started these groups were set up semi independantly, system engineering had some guidelines but these were not necessarily followed. IT was not put in a strong position in the construction site and was under staffed.This redulted in multiple problems. For example Camera and DM investigated deployment technologies comming to differnt conclusions (puppet/chef), this should have been driven by IT but IT was not envisioned as underpinning a large  modern software production.
 
-The team for
+On a positive note some sucess was had in February 2020 with AuxTel comming on sky \citep{Ingraham20}.
+
+
+\section {Cyber Infrastructure Stack} \label{sect:cis}
+
+The general Cyber Infrastructure approach of Rubin Observatory is layered as in Figure \ref{fig:ci}.
+This figure came out of a broader discussion duirng the petabytes to science workshop \citep{2019arXiv190505116B}.
+
+
+\begin{figure}
+\includegraphics[width=0.6\textwidth]{CI-LSST}
+\caption{Vera C. Rubin Observatory idealized cyber infrastructure stack. \label{fig:ci}}
+\end{figure}
+
+We aim to build a modern approach to IT just close enough to the cutting edge to allow us remain current at the start of operations but preferably not quite the bleeding edge.
+The traditional approach must be augmented an element of research and development in the IT team.
+This team underpins our software deployments and must be repected and trusted by developers to provide a
+good underlying infrastructure.
+
+This underlying infrastructure is considered to be a service architecture based on using standard reusable software from many of the established standards developed outside of astronomy (e.g., common authentication mechanisms such as CILogon, standard data and metadata management systems). Standard API interfaces should also be used to expose these components to higher level APIs. Data formatting and metadata structure can be exposed at the service level, allowing for more data and metadata reuse.
+
+
+
+\section{Agnostic data access}
+
+An example of a storage agnostic data/metadata layer is the Rubin Observatory  data butler \citep{2018arXiv181208085J}.
+Creation has been driven by the need to abstract data access away from algorithms.
+The algorithm code deals with Python objects and never directly with data formats or even storage.
+The data butler is a lot more than a data access layer, it includes a full registry of all data objects and how to locate them.
+This means it may sit atop a filesystem or an object store — an S3 plugin is now available and we are testing it in a pipeline.
+The data butler is astronomy oriented — it has a built in understanding of certain relationships such as between observations and calibrations or between observations and region of the sky.
+Since all metadate is held in a registry provenance queries can be answered by the butler and it already can act as the registry to find objects in an object store.
 
