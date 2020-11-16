@@ -1,36 +1,53 @@
-\documentclass[modern]{aastex62}
+\documentclass[modern]{spie}
 
 % lsstdoc documentation: https://lsst-texmf.lsst.io/lsstdoc.html
 \input{meta}
 
 % Package imports go here.
 
+\usepackage{graphics}
+
 % Local commands go here.
+%Need for SPIE
+\usepackage[breaklinks,colorlinks,urlcolor=blue,citecolor=blue,linkcolor=blue]{hyperref}
+\usepackage{longtable}
+\newcommand{\citep}[1]{(\cite{#1})}
+\def\aaps{A\&AS}           % Astronomy and Astrophysics Suplement
+\def\aap{A\&A}             % Astronomy and Astrophysics
+\def\ssr{Space~Sci.~Rev.}  % Space Science Reviews
+\def\apj{ApJ}              % Astrophysical Journal
+\def\aj{AJ}                % Astronomical Journal
+\def\mnras{MNRAS}          % Monthly Notices of the RAS
+\def\araa{ARA\&A}          % Annual Review of Astron and Astrophys
+\def\nat{Nature}           % Nature
+\def\apjl{ApJ}             % Astrophysical Journal, Letters
+\def\procspie{Proc.\ SPIE} % Proceedings of the SPIE
+\def\pasp{PASP}
 
-
+% END SPIE extras
 
 \newcommand{\docRef}{DMTN-145}
 \newcommand{\docUpstreamLocation}{\url{https://github.com/lsst-dm/dmtn-145}}
 
 
-\begin{document}
+
 \input{authors}
-\date{\today}
 \title{Bringing Rubin Observatory software together }
+\begin{document}
+\date{\today}
 \hypersetup{pdftitle={\@title}, pdfauthor={\@author}, pdfkeywords={\@keywords}}
 
+\maketitle
 \input{abstract}
-
 \input{body}
 
 \appendix
 % Remove this when you strart your paper
-\input{appendix}
 % Include all the relevant bib files.
 % https://lsst-texmf.lsst.io/lsstdoc.html#bibliographies
 \section{References} \label{sec:bib}
-\bibliographystyle{yahapj}
-\bibliography{local,lsst,lsst-dm,refs_ads,refs,books}
+\bibliographystyle{spiebib}
+\bibliography{local}
 
 % Make sure lsst-texmf/bin/generateAcronyms.py is in your path
 \section{Acronyms} \label{sec:acronyms}
